@@ -7,4 +7,3 @@ resource "azurerm_public_ip" "web_linuxvm_publicip" {
   sku = "Standard"
   domain_name_label = "app1-vm-${random_string.myrandom.id}"
 }
-

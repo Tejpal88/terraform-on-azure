@@ -2,7 +2,7 @@ business_divsion = "IT-Infra"
 environment = "Sandbox"
 resource_group_name = "DemoRg1"
 resource_group_location = "southeastasia"
-vnet_name = "demo-vnet"
+vnet_name = "demovnet"
 vnet_address_space = ["10.1.0.0/16"]
 
 web_subnet_name = "websubnet"

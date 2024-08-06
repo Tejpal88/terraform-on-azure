@@ -24,14 +24,14 @@ resource "azurerm_network_interface" "bastion_host_linuxvm_nic" {
 # Resource-3: Azure Linux Virtual Machine - Bastion Host
 resource "azurerm_linux_virtual_machine" "bastion_host_linuxvm" {
   name = "${local.resource_name_prefix}-bastion-linuxvm"
-  #computer_name = "bastionlinux-vm"  # Hostname of the VM (Optional)
+  computer_name = "demobastion01"  # Hostname of the VM (Optional)
   resource_group_name = azurerm_resource_group.rg.name
   location = azurerm_resource_group.rg.location
   size = "Standard_DS1_v2"
-  admin_username = "azureuser"
+  admin_username = "azadmin"
   network_interface_ids = [ azurerm_network_interface.bastion_host_linuxvm_nic.id ]
   admin_ssh_key {
-    username = "azureuser"
+    username = "azadmin"
     public_key = file("${path.module}/ssh-keys/terraform-azure.pub")
   }
   os_disk {

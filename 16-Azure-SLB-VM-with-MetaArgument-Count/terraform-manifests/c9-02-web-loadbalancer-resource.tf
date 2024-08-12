@@ -32,7 +32,7 @@ resource "azurerm_lb_probe" "web_lb_probe" {
   protocol            = "Tcp"
   port                = 80
   loadbalancer_id     = azurerm_lb.web_lb.id
-  resource_group_name = azurerm_resource_group.rg.name
+#  resource_group_name = azurerm_resource_group.rg.name
 }
 
 # Resource-5: Create LB Rule
@@ -42,10 +42,10 @@ resource "azurerm_lb_rule" "web_lb_rule_app1" {
   frontend_port                  = 80
   backend_port                   = 80
   frontend_ip_configuration_name = azurerm_lb.web_lb.frontend_ip_configuration[0].name
-  backend_address_pool_id        = azurerm_lb_backend_address_pool.web_lb_backend_address_pool.id 
+#  backend_address_pool_id        = azurerm_lb_backend_address_pool.web_lb_backend_address_pool.id 
   probe_id                       = azurerm_lb_probe.web_lb_probe.id
   loadbalancer_id                = azurerm_lb.web_lb.id
-  resource_group_name            = azurerm_resource_group.rg.name
+#  resource_group_name            = azurerm_resource_group.rg.name
 }
 
 
@@ -53,7 +53,8 @@ resource "azurerm_lb_rule" "web_lb_rule_app1" {
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_backend_address_pool_association
 resource "azurerm_network_interface_backend_address_pool_association" "web_nic_lb_associate" {
   count = var.web_linuxvm_instance_count
-  network_interface_id    = element(azurerm_network_interface.web_linuxvm_nic[*].id, count.index)
+#  network_interface_id    = element(azurerm_network_interface.web_linuxvm_nic[*].id, count.index)
+  network_interface_id    = azurerm_network_interface.web_linuxvm_nic[count.index].id
   ip_configuration_name   = azurerm_network_interface.web_linuxvm_nic[count.index].ip_configuration[0].name
   backend_address_pool_id = azurerm_lb_backend_address_pool.web_lb_backend_address_pool.id
 }

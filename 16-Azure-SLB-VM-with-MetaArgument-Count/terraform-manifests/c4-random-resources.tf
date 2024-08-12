@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Random String Resource
 resource "random_string" "myrandom" {
   length = 6

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Resource-1: Create Public IP Address for Azure Load Balancer
 resource "azurerm_public_ip" "web_lbpublicip" {
   name                = "${local.resource_name_prefix}-lbpublicip"

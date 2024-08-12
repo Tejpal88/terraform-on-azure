@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Locals Block for custom data
 locals {
 webvm_custom_data = <<CUSTOM_DATA

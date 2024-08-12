@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 business_divsion = "Infra"
 environment = "Prod"
 resource_group_name = "DemoRg1"

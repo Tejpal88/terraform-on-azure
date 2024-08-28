@@ -39,10 +39,10 @@ resource "azurerm_linux_virtual_machine" "bastion_host_linuxvm" {
     storage_account_type = "Standard_LRS"
   }
   source_image_reference {
-    publisher = "RedHat"
-    offer = "RHEL"
-    sku = "83-gen2"
-    version = "latest"
+    publisher = "Oracle"
+    offer = "Oracle-Linux"
+    sku = "ol93-lvm-gen2"
+    version = "9.3.3"
   }
   #custom_data = filebase64("${path.module}/app-scripts/redhat-app1-script.sh")    
 }

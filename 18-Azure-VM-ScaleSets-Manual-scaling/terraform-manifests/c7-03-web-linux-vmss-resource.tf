@@ -35,10 +35,10 @@ resource "azurerm_linux_virtual_machine_scale_set" "web_vmss" {
   }
 
   source_image_reference {
-    publisher = "RedHat"
-    offer = "RHEL"
-    sku = "83-gen2"
-    version = "latest"
+    publisher = "Oracle"
+    offer = "Oracle-Linux"
+    sku = "ol93-lvm-gen2"
+    version = "9.3.3"
   }   
 
   os_disk {

@@ -1,3 +1,31 @@
+# Define a Public IP Address for the NAT Gateway
+resource "azurerm_public_ip" "nat_public_ip" {
+  name                = "WebVMSS-NAT-PublicIP"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+# Define the NAT Gateway
+resource "azurerm_nat_gateway" "nat_gw" {
+  name                	  = "Web-VMSS-NATGW"
+  resource_group_name 	  = azurerm_resource_group.rg.name
+  location            	  = azurerm_resource_group.rg.location
+  sku_name           	  = "Standard"
+}
+
+# Associate the Public IP Address with the NAT Gateway
+resource "azurerm_nat_gateway_public_ip_association" "nat_gw_pip" {
+  nat_gateway_id         = azurerm_nat_gateway.nat_gw.id
+  public_ip_address_id   = azurerm_public_ip.nat_public_ip.id
+}
+
+# Associate the NAT Gateway with the Private Subnet
+resource "azurerm_subnet_nat_gateway_association" "subnet_nat_gw_assoc" {
+  subnet_id      = azurerm_subnet.websubnet.id
+  nat_gateway_id = azurerm_nat_gateway.nat_gw.id
+}
 # Locals Block for custom data
 # Locals Block for custom data
 locals {

@@ -161,7 +161,7 @@ resource "azurerm_application_gateway" "web_ag" {
   redirect_configuration {
     name = local.redirect_configuration_name
     redirect_type = "Permanent"
-    target_url = "https://stacksimplify.com/azure-aks/azure-kubernetes-service-introduction/"
+    target_url = "https://azure.microsoft.com/en-us/products/devops/artifacts/"
   }
 
 }

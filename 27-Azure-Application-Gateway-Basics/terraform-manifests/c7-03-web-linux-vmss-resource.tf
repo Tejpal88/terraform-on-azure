@@ -57,7 +57,14 @@ resource "azurerm_linux_virtual_machine_scale_set" "web_vmss" {
       primary   = true
       subnet_id = azurerm_subnet.websubnet.id  
       #load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.web_lb_backend_address_pool.id]
-      application_gateway_backend_address_pool_ids = [azurerm_application_gateway.web_ag.backend_address_pool[0].id]            
+      application_gateway_backend_address_pool_ids = [
+	element(
+	  [
+            for pool in azurerm_application_gateway.web_ag.backend_address_pool : pool.id
+          ],
+	  0
+        )
+      ]		
     }
   }
   #custom_data = filebase64("${path.module}/app-scripts/redhat-app1-script.sh")      

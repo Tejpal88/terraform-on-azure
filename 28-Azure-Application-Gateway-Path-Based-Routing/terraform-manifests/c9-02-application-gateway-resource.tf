@@ -134,9 +134,10 @@ resource "azurerm_application_gateway" "web_ag" {
 # Path based Routing Rule
   request_routing_rule {
     name                       = local.request_routing_rule1_name
+    priority                   = 10
     rule_type                  = "PathBasedRouting"
     http_listener_name         = local.listener_name
-    url_path_map_name           = local.url_path_map        
+    url_path_map_name          = local.url_path_map        
   }
 
 # URL Path Map - Define Path based Routing    

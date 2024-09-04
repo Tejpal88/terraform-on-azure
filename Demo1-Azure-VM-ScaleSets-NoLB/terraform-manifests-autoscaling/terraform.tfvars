@@ -1,8 +1,8 @@
-business_divsion = "demo"
-environment = "prod"
-resource_group_name = "rg01"
+business_divsion = "dev"
+environment = "sandbox"
+resource_group_name = "demorg01"
 resource_group_location = "southeastasia"
-vnet_name = "vnetdemo"
+vnet_name = "vnetdemo01"
 vnet_address_space = ["10.1.0.0/16"]
 
 web_subnet_name = "websubnet"

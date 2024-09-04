@@ -38,11 +38,11 @@ sudo systemctl start httpd
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 sudo chmod -R 777 /var/www/html 
-sudo echo "Welcome to stacksimplify - WebVM App1 - VM Hostname: $(hostname)" > /var/www/html/index.html
+sudo echo "Welcome to Arun AB Demo App1 - VM Hostname: $(hostname)" > /var/www/html/index.html
 sudo mkdir /var/www/html/app1
-sudo echo "Welcome to stacksimplify - WebVM App1 - VM Hostname: $(hostname)" > /var/www/html/app1/hostname.html
-sudo echo "Welcome to stacksimplify - WebVM App1 - App Status Page" > /var/www/html/app1/status.html
-sudo echo '<!DOCTYPE html> <html> <body style="background-color:rgb(250, 210, 210);"> <h1>Welcome to Stack Simplify - WebVM APP-1 </h1> <p>Terraform Demo</p> <p>Application Version: V1</p> </body></html>' | sudo tee /var/www/html/app1/index.html
+sudo echo "Welcome to Server Demo App1 - VM Hostname: $(hostname)" > /var/www/html/app1/hostname.html
+sudo echo "Welcome to WebVM App1 - App Status Page" > /var/www/html/app1/status.html
+sudo echo '<!DOCTYPE html> <html> <body style="background-color:rgb(250, 210, 210);"> <h1>Welcome to Arun Bharathwaj A - WebVM APP-1 </h1> <p>Terraform Demo</p> <p>Application Version: V1</p> </body></html>' | sudo tee /var/www/html/app1/index.html
 sudo curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" -o /var/www/html/app1/metadata.html
 CUSTOM_DATA  
 }
@@ -85,7 +85,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "web_vmss" {
       name      = "internal"
       primary   = true
       subnet_id = azurerm_subnet.websubnet.id  
-      load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.web_lb_backend_address_pool.id]
+#      load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.web_lb_backend_address_pool.id]
     }
   }
   #custom_data = filebase64("${path.module}/app-scripts/redhat-app1-script.sh")      

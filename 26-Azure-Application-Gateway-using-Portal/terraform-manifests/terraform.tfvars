@@ -23,4 +23,4 @@ bastion_subnet_address = ["10.1.100.0/24"]
 web_vmss_nsg_inbound_ports = [22, 80, 443]
 
 ag_subnet_name = "agsubnet"
-ag_subnet_address = ["10.1.51.0/24"]
+ag_subnet_address = ["10.1.47.0/24"]

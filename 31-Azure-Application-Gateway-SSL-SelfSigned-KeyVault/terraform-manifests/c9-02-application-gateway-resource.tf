@@ -143,7 +143,7 @@ resource "azurerm_application_gateway" "web_ag" {
   }
 
   identity {
-    type = azurerm_user_assigned_identity
+    type = "UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.appag_umid.id]
   }  
 

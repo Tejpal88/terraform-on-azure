@@ -9,7 +9,7 @@ resource "azurerm_lb" "app_lb" {
     subnet_id = azurerm_subnet.appsubnet.id
     private_ip_address_allocation = "Static"
     private_ip_address_version = "IPv4"
-    private_ip_address = "10.1.11.243"
+    private_ip_address = "10.1.11.111"
   }
 }
  

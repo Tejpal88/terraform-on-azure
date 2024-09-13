@@ -1,8 +1,8 @@
-business_divsion = "hr"
-environment = "dev"
-resource_group_name = "rg"
-resource_group_location = "eastus"
-vnet_name = "vnet"
+business_divsion = "IT"
+environment = "Sandbox"
+resource_group_name = "project01"
+resource_group_location = "southeastasia"
+vnet_name = "vnet01"
 vnet_address_space = ["10.1.0.0/16"]
 
 web_subnet_name = "websubnet"

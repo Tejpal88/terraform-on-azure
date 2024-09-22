@@ -10,6 +10,11 @@ crash.log
 .azure/commands/*.log
 .lesshst
 .viminfo
+.azure/logs/telemetry.log
+.azure/msal_http_cache.bin
+.azure/msal_token_cache.json
+.azure/telemetry.txt
+.gitconfig
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.

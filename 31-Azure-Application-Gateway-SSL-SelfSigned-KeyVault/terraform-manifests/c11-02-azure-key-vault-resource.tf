@@ -11,7 +11,7 @@ resource "azurerm_key_vault" "keyvault" {
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
   enabled_for_template_deployment = true
-  sku_name = "premium"
+  sku_name = "standard"
 }
 
 
